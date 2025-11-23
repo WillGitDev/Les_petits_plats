@@ -1,0 +1,69 @@
+.banner {
+    position: relative;
+    height: var(--header-height);
+}
+
+.img {
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(50%);
+}
+
+.banner::after {
+    position: absolute;
+    content: "";
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to top right,
+        rgba(0, 0, 0, 0.8),
+        rgba(0, 0, 0, 0)
+    );
+}
+
+/* Logo les petits plats */
+
+.logo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    z-index: 2;
+}
+
+/*Logo cercle*/
+
+.circleOne {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    border: 2px solid white;
+    border-radius: 50px;
+    margin-left: 6px;
+}
+
+.circleTwo {
+    height: 12px;
+    width: 12px;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.contentLogo {
+    color: white;
+    font-size: 30px;
+    font-weight: 400;
+}
+
+/* Styles pour l'élément Children */
+
+.containerChildren {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}

@@ -89,7 +89,17 @@ a.secondary {
     border-color: var(--button-secondary-border);
 }
 
+/* Style pour le titre */
+
+.title {
+    color: #ffd15b;
+    font-size: 44px;
+    text-align: center;
+    line-height: 1.5em;
+}
+
 /* Styles pour le filtre */
+
 .filterContainer {
     display: flex;
     justify-content: space-between;

@@ -1,0 +1,13 @@
+{
+    "spellright.language": ["fr"],
+    "spellright.documentTypes": [
+        "markdown",
+        "latex",
+        "plaintext",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "jsonc"
+    ]
+}

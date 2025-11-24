@@ -2,52 +2,68 @@ import styles from "./styles.module.css";
 import Image from "next/image";
 import { anton } from "@/app/ui/fonts";
 
-export default function RestaurantCard() {
+/**
+ * Props du composant RestaurantCard
+ * @typedef {Object} RecipeInfo
+ * @property {string} img - Nom du fichier image.
+ * @property {string} name - Nom de la recette.
+ * @property {string} description - Description de la recette.
+ * @property {Ingredient[]} ingredients - Un tableau des ingrédients de la recette.
+ */
+
+/**
+ * Représente un ingrédient
+ * @typedef {Object} Ingredient
+ * @property {string} ingredient - l'ingredient utiliser dans la recette.
+ * @property {number} [quantity] - La quantité de l'ingrédient (optionnel).
+ * @property {string} [unit] - L'unité utilisée pour quantifier l'ingrédient (optionnel).
+ */
+
+/**
+ * Affiche une carte de recette en fonction des éléments transmis.
+ * @param {RecipeInfo} props - Propriétés du composant RestaurantCard.
+ * @returns {JSX.Element} Élément React représentant la carte de recette.
+ */
+export default function RestaurantCard({
+    img,
+    name,
+    description,
+    ingredients,
+}) {
+    const path = "/images/recipes/";
     return (
         <article className={styles.article}>
             <Image
                 className={styles.img}
-                src="/images/recipes/Recette01.jpg"
+                src={`${path}${img}`}
                 alt="Photo d'un plat"
                 height={250}
                 width={380}
             />
             <div className={styles.contentCard}>
                 <h2 className={`${styles.titleCard} ${anton.className}`}>
-                    Limonade de coco
+                    {name}
                 </h2>
                 <div className={styles.recipe}>
                     <h3 className={styles.titleContent}>RECETTE</h3>
-                    <p className={styles.contentRecipe}>
-                        Mettre les glaçons à votre goût dans le blender, Ajouter
-                        le lait la crème de coco, le jus de 2 citrons et le
-                        sucre ensemble. Mixer jusqu'à obtenir la consistance
-                        désirée.
-                    </p>
+                    <p className={styles.contentRecipe}>{description}</p>
                 </div>
                 <div className={styles.ingredients}>
                     <h3 className={styles.titleContent}>INGRÉDIENTS</h3>
                     <div className={styles.ingredientsContent}>
-                        <div className={styles.ingredientContent}>
-                            <p className={styles.ingredient}>Lait de coco</p>
-                            <p className={styles.quantity}>400ml</p>
-                        </div>
-                        <div className={styles.ingredientContent}>
-                            <p className={styles.ingredient}>Crème de coco</p>
-                            <p className={styles.quantity}>4 cuillères</p>
-                        </div>
-                        <div className={styles.ingredientContent}>
-                            <p className={styles.ingredient}>Glaçons</p>
-                            <p className={styles.quantity}>2</p>
-                        </div>
-                        <div className={styles.ingredientContent}>
-                            <p className={styles.ingredient}>Jus de citron</p>
-                            <p className={styles.quantity}>2</p>
-                        </div>
-                        <div className={styles.ingredientContent}>
-                            <p className={styles.ingredient}>Sucre</p>
-                            <p className={styles.quantity}>20g</p>
-                        </div>
+                        {ingredients.map((element, index) => (
+                            <div
+                                className={styles.ingredientContent}
+                                key={`${element.ingredient}-${index}`}
+                            >
+                                <p className={styles.ingredient}>
+                                    {element.ingredient}
+                                </p>
+                                <p className={styles.quantity}>{`${
+                                    element.quantity ? element.quantity : ""
+                                } ${element.unit ? element.unit : ""}`}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -5,6 +5,7 @@ import { anton } from "@/app/ui/fonts";
 /**
  * Composant Banner.
  * Affiche une image de fond avec un contenu surperposé(falcutatif).
+ *
  * @typedef {Object} BannerProps
  * @property {string} img - Chemin de l'image de fond.
  * @property {number} [height=180] - Hauteur de la bannière en pixels.

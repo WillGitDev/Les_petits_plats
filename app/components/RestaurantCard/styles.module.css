@@ -32,6 +32,8 @@
 .contentRecipe {
     font-size: 14px;
     font-weight: 400;
+    overflow: hidden;
+    height: 75px;
 }
 
 .ingredientsContent {

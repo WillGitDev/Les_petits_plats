@@ -1,0 +1,20 @@
+.title {
+    text-align: center;
+    line-height: 2em;
+}
+
+.partOne {
+    font-weight: 400;
+    font-size: 70px;
+    color: #ffd15b;
+}
+
+.partTwo {
+    font-weight: 400;
+    font-size: 40px;
+    color: #ffffff;
+}
+
+.header {
+    height: 100%;
+}

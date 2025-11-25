@@ -1,9 +1,24 @@
 .article {
+    position: relative;
     height: 730px;
     width: 380px;
     border-radius: 10px;
     overflow: hidden;
     background-color: white;
+}
+
+.time {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ffd15b;
+    width: 65px;
+    height: 26px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
 }
 
 .img {

@@ -1,13 +1,14 @@
 import Image from "next/image";
 import styles from "./page.module.css";
-import Header from "@/app/components/Header";
-import DropDownMenu from "@/app/components/DropDownMenu";
-import RestaurantCard from "@/app/components/RestaurantCard";
-import NumberRecipe from "@/app/components/NumberRecipe";
-import data from "@/data/data_recipes.json";
-import Banner from "@/app/components/Banner";
-import SearchBar from "@/app/components/SearchBar";
-import { anton } from "@/app/ui/fonts";
+import Header from "@components/Header";
+import DropDownMenu from "@components/DropDownMenu";
+import RestaurantCard from "@components/RestaurantCard";
+import NumberRecipe from "@components/NumberRecipe";
+import data from "@data/data_recipes.json";
+import Banner from "@components/Banner";
+import SearchBar from "@components/SearchBar";
+import { anton } from "@ui/fonts";
+import Link from "next/link";
 
 export default function Home() {
     return (
@@ -32,13 +33,18 @@ export default function Home() {
                 </div>
                 <div className={styles.card}>
                     {data.map((element) => (
-                        <RestaurantCard
+                        <Link
                             key={element.id}
-                            img={element.image}
-                            name={element.name}
-                            description={element.description}
-                            ingredients={element.ingredients}
-                        />
+                            href={`/recette/${element.slug}`}
+                        >
+                            <RestaurantCard
+                                img={element.image}
+                                name={element.name}
+                                description={element.description}
+                                ingredients={element.ingredients}
+                                time={element.time}
+                            />
+                        </Link>
                     ))}
                 </div>
             </main>

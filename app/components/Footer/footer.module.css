@@ -9,3 +9,7 @@
 .content {
     color: white;
 }
+
+.header {
+    height: 100vh;
+}

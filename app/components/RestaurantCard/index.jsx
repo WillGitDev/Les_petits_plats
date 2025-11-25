@@ -4,11 +4,12 @@ import { anton } from "@/app/ui/fonts";
 
 /**
  * Props du composant RestaurantCard
- * @typedef {Object} RecipeInfo
+ * @typedef {Object} Recipe
  * @property {string} img - Nom du fichier image.
  * @property {string} name - Nom de la recette.
  * @property {string} description - Description de la recette.
  * @property {Ingredient[]} ingredients - Un tableau des ingrédients de la recette.
+ * @property {number} time - Le temps pour réaliser la recette en minute.
  */
 
 /**
@@ -21,7 +22,7 @@ import { anton } from "@/app/ui/fonts";
 
 /**
  * Affiche une carte de recette en fonction des éléments transmis.
- * @param {RecipeInfo} props - Propriétés du composant RestaurantCard.
+ * @param {Recipe} props - Propriétés du composant RestaurantCard.
  * @returns {JSX.Element} Élément React représentant la carte de recette.
  */
 export default function RestaurantCard({
@@ -29,6 +30,7 @@ export default function RestaurantCard({
     name,
     description,
     ingredients,
+    time,
 }) {
     const path = "/images/recipes/";
     return (
@@ -40,6 +42,7 @@ export default function RestaurantCard({
                 height={250}
                 width={380}
             />
+            <div className={styles.time}>{`${time}min`}</div>
             <div className={styles.contentCard}>
                 <h2 className={`${styles.titleCard} ${anton.className}`}>
                     {name}

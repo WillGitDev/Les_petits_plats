@@ -9,16 +9,24 @@ import { anton } from "@/app/ui/fonts";
  * @typedef {Object} BannerProps
  * @property {string} img - Chemin de l'image de fond.
  * @property {number} [height=180] - Hauteur de la bannière en pixels.
+ * @property {boolean} isFullHeight - Mettre une valeur à true ignore le paramètre hauteur et la fixe à 100%.
  * @property {React.ReactNode} [children] - Contenu affiché par-dessus la bannière.
  *
  * @param {BannerProps} props - Propriétés du composant Banner.
  * @returns {JSX.Element} Élément React représentant la bannière.
  */
-export default function Banner({ img, height = 180, children }) {
+export default function Banner({
+    img,
+    height = 130,
+    isFullHeight = false,
+    children,
+}) {
     return (
         <div
             className={styles.banner}
-            style={{ "--header-height": `${height}px` }}
+            style={{
+                "--header-height": isFullHeight ? "100%" : `${height}px`,
+            }}
         >
             <Image
                 className={styles.img}

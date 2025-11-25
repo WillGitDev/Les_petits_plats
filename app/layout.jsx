@@ -10,8 +10,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="fr">
-            <body className={manrope.className}>
-                {children}
+            <body className={`${manrope.className} "app"`}>
+                <main className="page">{children}</main>
+
                 <Footer />
             </body>
         </html>
